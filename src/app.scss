@@ -1,11 +1,19 @@
 $prim-color: #5172ec;
+$prim-color-text: #fff;
 $text-default-color: #747474;
+$box-background-color: #f6f6f6;
+$box-border-color: #d5d5d5;
+
+$exo-medium: 300;
+$exo-semibold: 600;
+$exo-black: 900;
 
 $header-height: 95px;
 
+$search-bar-height: 65px;
+
 header {
   height: $header-height;
-  width: 100%;
   background: rgba(255, 255, 255, 0.8);
   border-bottom: 1px solid #d5d5d5;
   box-shadow: offset-x offset-y blur-radius spread-radius rgba(0, 0, 0, 0.6)
@@ -15,6 +23,7 @@ header {
   flex-direction: row;
   align-items: center;
   padding: 0 2rem;
+  user-select: none;
 
   #header-logo {
     height: 36px;
@@ -26,7 +35,7 @@ header {
   }
 
   h1 {
-    font-weight: 900;
+    font-weight: $exo-black;
     font-size: 36px;
     color: $prim-color;
     margin: -5px 0 0;
@@ -60,5 +69,147 @@ body {
   &,
   * {
     color: $text-default-color;
+  }
+}
+
+.box {
+  background: $box-background-color;
+  border: 1px solid $box-border-color;
+}
+
+.rounded {
+  border-radius: 5px;
+}
+
+.sharp-bottom {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+#page {
+  display: flex;
+  padding: 2rem;
+}
+
+#search {
+  width: 63%;
+
+  #search-bar {
+    height: $search-bar-height;
+    width: 100%;
+    display: flex;
+
+    .search-field {
+      border-right: 1px solid $box-border-color;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 1rem;
+      user-select: none;
+      min-width: 20%;
+
+      &:last-child {
+        border: none;
+      }
+
+      input,
+      .dropdown {
+        font-weight: $exo-medium;
+        font-size: 16px;
+        color: $text-default-color;
+        border: none;
+        outline: none;
+        padding: 0;
+        width: 100%;
+      }
+
+      input {
+        background: none;
+        background-size: 20px;
+        background-position: 0 center;
+        background-repeat: no-repeat;
+        height: 30%;
+        padding-left: 35px;
+        padding-right: 0px;
+
+        &::after {
+          content: "";
+          height: 100%;
+          border-right: 1px solid $box-border-color;
+        }
+
+        &.search-title {
+          background-image: url(search.svg);
+        }
+
+        &.search-location {
+          background-image: url(location.svg);
+          background-size: 15px;
+        }
+      }
+
+      .dropdown {
+        background: url(dropdown.svg) no-repeat right center;
+        background-size: 10px;
+        padding-right: 25px;
+        text-align: left;
+      }
+    }
+  }
+}
+
+#results {
+  width: 100%;
+  float: left;
+  margin-top: 2vw;
+
+  .position {
+    display: flex;
+    flex-direction: column;
+
+    .position-top {
+      height: 70px;
+      line-height: 70px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      img.position-company-logo {
+        max-width: 75px;
+        max-height: 50px;
+      }
+
+      > div {
+        line-height: 24px;
+      }
+      .position-title,
+      .position-company {
+      }
+
+      .position-details-right {
+        margin-left: auto;
+        order: 2;
+      }
+    }
+    .position-description {
+      height: 150px;
+      width: 100%;
+    }
+  }
+}
+
+#apply {
+  width: 35%;
+  min-height: 80vh;
+  margin-left: auto;
+  order: 2;
+
+  header {
+    background: $prim-color;
+    color: $prim-color-text;
+    font-weight: $exo-semibold;
+    height: $search-bar-height;
+    line-height: $search-bar-height;
   }
 }

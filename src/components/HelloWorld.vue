@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from "vue";
+import Search from "./Search.vue";
+import Apply from "./Apply.vue";
 
 defineProps({
   msg: String,
@@ -18,10 +20,10 @@ const count = ref(0);
       <a href="#">Menu Item</a>
     </nav>
   </header>
+  <div id="page">
+    <Search />
+    <Apply />
+  </div>
 </template>
 
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>
+<style scoped></style>
