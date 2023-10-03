@@ -11,6 +11,7 @@ const count = ref(0);
 
 <template>
   <div id="results">
+    <span>Showing 20 of 70 Results</span>
     <Position />
     <Position />
     <Position />
