@@ -5,7 +5,28 @@ export default {
   data() {
     return {
       ...this.position,
+      descriptionLimit: 600,
+      expand: false,
     };
+  },
+  methods: {
+    excerpt: function () {
+      return this.description.length > this.descriptionLimit
+        ? this.description.substring(0, this.descriptionLimit) + "..."
+        : this.description;
+    },
+
+    full: function () {
+      return this.description;
+    },
+
+    showFull: function (e) {
+      this.expand = true;
+    },
+
+    showExcerpt: function (e) {
+      this.expand = false;
+    },
   },
 };
 </script>
@@ -13,7 +34,7 @@ export default {
 <template>
   <div
     class="position box rounded"
-    v-bind:class="active ? 'position-active' : ''"
+    v-bind:class="expand ? 'position-active' : ''"
   >
     <div class="position-top">
       <div class="position-company-logo">
@@ -31,9 +52,9 @@ export default {
         <span class="position-location">{{ location }}</span>
       </div>
     </div>
-    <div class="position-description">
+    <div class="position-description" @click="(e) => showFull(e)">
       <span>Job Description</span>
-      <p>{{ description }}</p>
+      <p>{{ expand ? full(description) : excerpt(description) }}</p>
     </div>
   </div>
 </template>

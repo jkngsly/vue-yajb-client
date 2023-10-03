@@ -1,12 +1,12 @@
-<script setup>
-import { ref } from "vue";
+<script>
 import SearchResults from "./SearchResults.vue";
-
-defineProps({
-  msg: String,
-});
-
-const count = ref(0);
+export default {
+  components: { SearchResults },
+  setup(props) {},
+  data() {
+    return {};
+  },
+};
 </script>
 
 <template>

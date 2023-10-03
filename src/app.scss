@@ -238,9 +238,33 @@ body {
         }
       }
     }
+
+    &.position-active {
+      .position-description {
+        max-height: 400px;
+        transition: max-height 0.25s ease-in;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    .position-description::-webkit-scrollbar {
+      display: none !important;
+    }
+
     .position-description {
-      height: 150px;
+      //height: 150px;
+      //line-height: 24px;
       position: relative;
+      // transition: 0.3s;
+      overflow-y: scroll;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+
+      max-height: 170px;
+      transition: max-height 0.3s ease-out;
 
       span {
         font-size: 16px;
