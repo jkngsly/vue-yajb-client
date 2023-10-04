@@ -15,7 +15,7 @@ export default {
 <template>
   <div>
     <PageMenu />
-    <div id="page">
+    <div class="page">
       <Search />
       <Application />
     </div>
