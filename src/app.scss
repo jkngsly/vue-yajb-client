@@ -57,10 +57,68 @@ header {
       margin-right: 3rem;
       border-bottom: 4px solid $invisible;
 
-      &.active {
+      &.active,
+      &:hover {
         color: $prim-color;
+      }
+
+      &.active {
         border-bottom: 4px solid $prim-color;
       }
+    }
+  }
+
+  a.notifications {
+    background: url("notification.svg") no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    display: block;
+    cursor: pointer;
+
+    margin-left: auto;
+  }
+
+  #user {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    a {
+      background-size: contain;
+      display: block;
+      cursor: pointer;
+    }
+
+    a.notifications {
+      background: url("notification.svg") no-repeat;
+      width: 25px;
+      height: 25px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+
+        path {
+          fill: $text-default-color;
+        }
+      }
+
+      &:hover {
+        svg {
+          path {
+            fill: $prim-color;
+          }
+        }
+      }
+    }
+
+    a.user {
+      background: url("user.svg") no-repeat;
+      margin-left: 2rem;
+      width: 35px;
+      height: 35px;
     }
   }
 }
