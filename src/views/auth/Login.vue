@@ -11,7 +11,7 @@ export default {
 <template>
   <div id="login" class="page">
     <h1 id="login-logo">yajb</h1>
-    <form class="box">
+    <form class="box rounded">
       <input type="text" class="email" placeholder="E-mail" />
       <input type="password" class="password" placeholder="Password" />
       <input type="button" value="Login" />

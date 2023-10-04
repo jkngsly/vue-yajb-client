@@ -361,7 +361,7 @@ body {
   }
 }
 
-#apply {
+#application {
   width: 35%;
   min-height: 80vh;
   margin-left: auto;
@@ -370,6 +370,23 @@ body {
   header {
     background: $prim-color;
     color: $prim-color-text;
+    font-weight: $exo-semibold;
+    height: $search-bar-height;
+    line-height: $search-bar-height;
+  }
+}
+
+#search-filters {
+  width: 35%;
+  min-height: 80vh;
+  margin-left: auto;
+  order: 2;
+
+  header {
+    background: url("filter.svg") no-repeat 20px;
+    padding-left: 55px;
+    background-size: 16px;
+    color: $text-default-color;
     font-weight: $exo-semibold;
     height: $search-bar-height;
     line-height: $search-bar-height;
@@ -414,7 +431,6 @@ body {
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    border-radius: 5px;
 
     input {
       border: none;
