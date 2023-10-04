@@ -19,7 +19,7 @@ export default {
         />
       </svg>
     </a>
-    <a class="user"></a>
+    <router-link to="/login" class="user"></router-link>
   </div>
 </template>
 

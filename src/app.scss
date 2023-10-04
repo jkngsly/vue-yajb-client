@@ -146,9 +146,10 @@ body {
   border-bottom-right-radius: 0px;
 }
 
-#page {
+.page {
   display: flex;
   padding: 2rem;
+  justify-content: center;
 }
 
 #search {
@@ -377,10 +378,80 @@ body {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.15s ease;
+  transition: opacity 0.1s ease;
 }
 
 .fade-enter-from,
 .fade-leave-active {
   opacity: 0;
+}
+
+#login {
+  flex-direction: column;
+  align-items: center;
+  height: 75vh;
+
+  #login-logo {
+    height: 55px;
+    width: auto;
+    background: url(logo.png) no-repeat left;
+    display: block;
+    padding-left: 65px;
+  }
+
+  h1 {
+    font-weight: $exo-black;
+    font-size: 36px;
+    color: $prim-color;
+    margin: -5px 0 20px;
+  }
+
+  form {
+    margin: 0 auto;
+    width: 40%;
+    max-width: 450px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 5px;
+
+    input {
+      border: none;
+      outline: none;
+      background: none;
+    }
+
+    input[type="button"] {
+      background: #5172ec;
+      width: auto;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 900;
+      border-radius: 5px;
+      padding: 20px 0;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      background: #fcfcfc;
+      background-size: 20px;
+      background-position: 15px center;
+      background-repeat: no-repeat;
+      border: 1px solid $box-border-color;
+      height: 30%;
+      padding: 15px 15px 15px 55px;
+      border-radius: 5px;
+      margin: 0 0 20px;
+
+      &.email {
+        background-image: url(email.svg);
+      }
+
+      &.password {
+        background-image: url(password.svg);
+        background-size: 15px;
+      }
+    }
+  }
 }

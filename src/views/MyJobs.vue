@@ -13,7 +13,7 @@ export default {
 <template>
   <div>
     <PageMenu />
-    <div id="page">hometiddy dometiddy</div>
+    <div class="page">hometiddy dometiddy</div>
   </div>
 </template>
 
