@@ -425,11 +425,20 @@ body {
     input[type="button"] {
       background: #5172ec;
       width: auto;
-      color: #fff;
+      color: $prim-color-text;
       text-transform: uppercase;
       font-weight: 900;
       border-radius: 5px;
       padding: 20px 0;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 1px solid $invisible;
+
+      &:hover {
+        background: #fcfcfc;
+        color: $prim-color;
+        border-color: $prim-color;
+      }
     }
 
     input[type="text"],
