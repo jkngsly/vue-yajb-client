@@ -3,6 +3,7 @@ $prim-color-text: #fff;
 $text-default-color: #747474;
 $box-background-color: #f6f6f6;
 $box-border-color: #d5d5d5;
+$invisible: rgba(255, 255, 255, 0);
 
 $exo-medium: 300;
 $exo-semibold: 600;
@@ -54,6 +55,7 @@ header {
       display: block;
       float: left;
       margin-right: 3rem;
+      border-bottom: 4px solid $invisible;
 
       &.active {
         color: $prim-color;
@@ -313,4 +315,14 @@ body {
     height: $search-bar-height;
     line-height: $search-bar-height;
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.15s ease;
+}
+
+.fade-enter-from,
+.fade-leave-active {
+  opacity: 0;
 }
