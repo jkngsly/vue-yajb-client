@@ -1,8 +1,42 @@
-import auth0 from "auth0-js";
-import EventEmitter from "eventemitter3";
-import router from "./../router";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:3000";
+//axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 
 export default class AuthService {
+  constructor() {
+    this.login = this.login.bind(this);
+    this.register = this.register.bind(this);
+  }
+
+  login(email, password) {
+    axios
+      .post("/login", {
+        email: email,
+        password: password,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  register(user) {
+    axios
+      .post("/register", user)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  /*
   authenticated = this.isAuthenticated();
   authNotifier = new EventEmitter();
 
@@ -13,17 +47,6 @@ export default class AuthService {
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
   }
-
-  // create an instance of auth0.WebAuth with your
-  // API and Client credentials
-  auth0 = new auth0.WebAuth({
-    domain: "dev-fok0n5366cabey4j.us.auth0.com",
-    clientID: "pXMKQddCqTPG06i7WD5qQqUGTCdpUEIf",
-    redirectUri: "http://localhost:8080",
-    audience: "https://dev-fok0n5366cabey4j.us.auth0.com/api/v2/",
-    responseType: "token id_token",
-    scope: "openid profile",
-  });
 
   // this method calls the authorize() method
   // which triggers the Auth0 login page
@@ -81,5 +104,5 @@ export default class AuthService {
   // a method to get the User profile
   getUserProfile(cb) {
     return this.profile;
-  }
+  } */
 }

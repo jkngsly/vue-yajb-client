@@ -4,14 +4,19 @@ export default {
   setup(props) {},
   data() {
     return {
-      username: "",
+      firstName: "",
+      lastName: "",
+      email: "",
       password: "",
     };
   },
   methods: {
-    login() {
+    register() {
+      console.log("hi");
       this.$emit("call", {
-        method: "login",
+        method: "register",
+        first_name: this.firstName,
+        last_name: this.lastName,
         email: this.email,
         password: this.password,
       });
@@ -24,6 +29,9 @@ export default {
   <div id="login" class="page">
     <h1 id="login-logo">yajb</h1>
     <form class="box rounded">
+      <input type="text" v-model="firstName" placeholder="firstName" />
+      <input type="text" v-model="lastName" placeholder="lastName" />
+
       <input type="text" class="email" v-model="email" placeholder="E-mail" />
       <input
         type="password"
@@ -31,7 +39,7 @@ export default {
         v-model="password"
         placeholder="Password"
       />
-      <input type="button" value="Login" @click="login()" />
+      <input type="button" value="Register" @click="register()" />
     </form>
   </div>
 </template>

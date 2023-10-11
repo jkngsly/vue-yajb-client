@@ -3,6 +3,7 @@ import Home from "@/views/Home.vue";
 import SearchJobs from "@/views/SearchJobs.vue";
 import MyJobs from "@/views/MyJobs.vue";
 import Login from "@/views/auth/Login.vue";
+import Register from "@/views/auth/Register.vue";
 
 const routes = [
   {
@@ -27,6 +28,12 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login,
+    meta: { transition: "fade" },
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
     meta: { transition: "fade" },
   },
 ];
