@@ -3,8 +3,13 @@ import PageMenu from "./components/PageMenu.vue";
 import Search from "./components/Search.vue";
 import Application from "./components/Application.vue";
 import AuthService from "./auth/AuthService";
+import axios from "axios";
 
-const API_URL = "http://localhost:8000";
+axios.defaults.baseURL = "http://localhost:3000";
+//axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
+
 const auth = new AuthService();
 
 export default {
@@ -23,12 +28,19 @@ export default {
       message: "",
     };*/
 
-    return {};
+    return {
+      "call-response": "",
+    };
   },
   methods: {
     // this method calls the AuthService login() method
-    login(data) {
-      auth.login(data.email, data.password);
+    async login(data) {
+      let response = await auth.login(data.email, data.password);
+
+      if (response.success) {
+        this.$router.push("/");
+      } else {
+      }
     },
     register(data) {
       auth.register(data);
@@ -46,7 +58,11 @@ export default {
 <template>
   <router-view v-slot="{ Component }">
     <transition name="fade" mode="out-in">
-      <component v-on:call="invoke" :is="Component"></component>
+      <component
+        v-on:call="invoke"
+        :call-response="sadd"
+        :is="Component"
+      ></component>
     </transition>
   </router-view>
 </template>

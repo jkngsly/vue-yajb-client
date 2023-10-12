@@ -437,7 +437,8 @@ body {
       background: none;
     }
 
-    input[type="button"] {
+    input[type="button"],
+    input[type="submit"] {
       background: #5172ec;
       width: auto;
       color: $prim-color-text;
@@ -476,6 +477,18 @@ body {
         background-image: url(password.svg);
         background-size: 15px;
       }
+    }
+
+    .error {
+      background: #b50d0dcc;
+      width: 100%;
+      color: #fff;
+      margin-bottom: 25px;
+      text-align: center;
+      padding: 10px 0;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.8rem;
     }
   }
 }

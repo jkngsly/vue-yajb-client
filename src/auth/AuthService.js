@@ -1,39 +1,30 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3000";
-//axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-axios.defaults.headers.post["Content-Type"] = "application/json";
-axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
-
 export default class AuthService {
   constructor() {
     this.login = this.login.bind(this);
     this.register = this.register.bind(this);
   }
 
-  login(email, password) {
-    axios
+  async login(email, password) {
+    const request = axios
       .post("/login", {
         email: email,
         password: password,
       })
-      .then(function (response) {
-        console.log(response);
-      })
       .catch(function (error) {
         console.log(error);
       });
+
+    return request.then((response) => response.data);
   }
 
-  register(user) {
-    axios
-      .post("/register", user)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  async register(user) {
+    const request = axios.post("/register", user).catch(function (error) {
+      console.log(error);
+    });
+
+    return request.then((response) => response.data);
   }
 
   /*

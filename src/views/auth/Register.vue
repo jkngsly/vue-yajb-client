@@ -1,4 +1,8 @@
 <script>
+import AuthService from "../../auth/AuthService";
+
+const auth = new AuthService();
+
 export default {
   components: {},
   setup(props) {},
@@ -8,18 +12,18 @@ export default {
       lastName: "",
       email: "",
       password: "",
+      error: false,
     };
   },
   methods: {
-    register() {
-      console.log("hi");
-      this.$emit("call", {
-        method: "register",
-        first_name: this.firstName,
-        last_name: this.lastName,
-        email: this.email,
-        password: this.password,
-      });
+    async register() {
+      let response = await auth.register(this.$data);
+
+      if (response.success) {
+        this.$router.push("/login");
+      } else {
+        this.error = response.error;
+      }
     },
   },
 };
@@ -28,9 +32,10 @@ export default {
 <template>
   <div id="login" class="page">
     <h1 id="login-logo">yajb</h1>
-    <form class="box rounded">
-      <input type="text" v-model="firstName" placeholder="firstName" />
-      <input type="text" v-model="lastName" placeholder="lastName" />
+    <form class="box rounded" @submit.prevent="register">
+      <div class="error rounded" v-show="error !== false">{{ error }}</div>
+      <input type="text" v-model="firstName" placeholder="First Name" />
+      <input type="text" v-model="lastName" placeholder="Last Name" />
 
       <input type="text" class="email" v-model="email" placeholder="E-mail" />
       <input
@@ -39,7 +44,7 @@ export default {
         v-model="password"
         placeholder="Password"
       />
-      <input type="button" value="Register" @click="register()" />
+      <input type="submit" value="Register" />
     </form>
   </div>
 </template>
