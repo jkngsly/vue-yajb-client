@@ -1,5 +1,5 @@
 <script>
-import PageMenu from "../components/PageMenu.vue";
+import PageMenu from "@components/PageMenu.vue";
 
 export default {
   components: { PageMenu },

@@ -1,9 +1,9 @@
 <script>
-import PageMenu from "./components/PageMenu.vue";
-import Search from "./components/Search.vue";
-import Application from "./components/Application.vue";
-import AuthService from "./auth/AuthService";
 import axios from "axios";
+import PageMenu from "@components/PageMenu.vue";
+import Search from "@components/Search.vue";
+import Application from "@components/Application.vue";
+import AuthService from "@services/AuthService";
 
 axios.defaults.baseURL = "http://localhost:3000";
 //axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
@@ -33,21 +33,6 @@ export default {
     };
   },
   methods: {
-    // this method calls the AuthService login() method
-    async login(data) {
-      let response = await auth.login(data.email, data.password);
-
-      if (response.success) {
-        this.$router.push("/");
-      } else {
-      }
-    },
-    register(data) {
-      auth.register(data);
-    },
-    logout() {
-      auth.logout();
-    },
     invoke(data) {
       if (data.method) return this[data.method](data);
     },
@@ -58,11 +43,7 @@ export default {
 <template>
   <router-view v-slot="{ Component }">
     <transition name="fade" mode="out-in">
-      <component
-        v-on:call="invoke"
-        :call-response="sadd"
-        :is="Component"
-      ></component>
+      <component v-on:call="invoke" :is="Component"></component>
     </transition>
   </router-view>
 </template>

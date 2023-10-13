@@ -1,5 +1,5 @@
 <script>
-import AuthService from "../../auth/AuthService";
+import AuthService from "@services/AuthService";
 
 const auth = new AuthService();
 
@@ -13,14 +13,17 @@ export default {
       email: "",
       password: "",
       error: false,
+      success: false,
     };
   },
   methods: {
     async register() {
+      this.error = false;
       let response = await auth.register(this.$data);
 
+      console.log(response);
       if (response.success) {
-        this.$router.push("/login");
+        this.success = true;
       } else {
         this.error = response.error;
       }
@@ -33,7 +36,10 @@ export default {
   <div id="login" class="page">
     <h1 id="login-logo">yajb</h1>
     <form class="box rounded" @submit.prevent="register">
-      <div class="error rounded" v-show="error !== false">{{ error }}</div>
+      <div v-show="success" class="success rounded">
+        {{ config.constants.register.success }}
+      </div>
+      <div class="error rounded" v-show="error">{{ error }}</div>
       <input type="text" v-model="firstName" placeholder="First Name" />
       <input type="text" v-model="lastName" placeholder="Last Name" />
 

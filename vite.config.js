@@ -22,6 +22,14 @@ export default defineConfig({
         ),
       },
       {
+        find: "@config",
+        replacement: fileURLToPath(new URL("./src/config", import.meta.url)),
+      },
+      {
+        find: "@services",
+        replacement: fileURLToPath(new URL("./src/services", import.meta.url)),
+      },
+      {
         find: "@views",
         replacement: fileURLToPath(new URL("./src/views", import.meta.url)),
       },

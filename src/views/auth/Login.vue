@@ -1,5 +1,5 @@
 <script>
-import AuthService from "../../auth/AuthService";
+import AuthService from "@services/AuthService";
 
 const auth = new AuthService();
 
