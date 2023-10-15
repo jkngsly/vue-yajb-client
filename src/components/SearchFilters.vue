@@ -40,6 +40,10 @@ export default {
         <label><span>$</span> Salary</label>
         <RangeSlider :value="salary" @update:value="salary = $event" />
       </div>
+
+      <div class="form-group">
+        <label><span>$</span>Date Posted</label>
+      </div>
     </form>
   </div>
 </template>

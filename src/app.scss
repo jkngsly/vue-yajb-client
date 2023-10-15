@@ -179,8 +179,7 @@ body {
         border: none;
       }
 
-      input,
-      .dropdown {
+      input {
         font-weight: $exo-medium;
         color: $text-default-color;
         border: none;
@@ -214,19 +213,56 @@ body {
         }
       }
 
-      .dropdown {
-        background: url(dropdown.svg) no-repeat right center;
-        background-size: 10px;
-        padding-right: 25px;
-        text-align: left;
-        min-width: 161px;
-      }
-
       a.filter {
         width: 30px;
         height: 30px;
         display: block;
       }
+
+      &.search-field-dropdown {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.dropdown {
+  background: url(dropdown.svg) no-repeat right center;
+  background-size: 10px;
+  padding-right: 25px;
+  text-align: left;
+  min-width: 161px;
+  position: relative;
+  height: 100%;
+  display: flex;
+
+  button {
+    font-weight: $exo-medium;
+    color: $text-default-color;
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    left: 0;
+    height: 0px;
+    bottom: 0;
+    width: 100%;
+
+    ul {
+      position: relative;
+      opacity: 0;
+      z-index: -10;
+      background: #fff;
+      border-radius: 0 0 5px 5px;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      overflow: hidden;
+      transition: 0.3s;
     }
   }
 }
@@ -390,13 +426,6 @@ body {
 
 #search-filters {
   width: 100%;
-
-  header {
-    color: $text-default-color;
-    font-weight: $exo-semibold;
-    height: $search-bar-height;
-    line-height: $search-bar-height;
-  }
 }
 
 @keyframes showSearchFilters {
@@ -441,8 +470,7 @@ body {
 
   form {
     display: flex;
-    flex-direction: column;
-    border-radius: 120px;
+    flex-direction: row;
     padding-left: 2rem;
     padding-right: 2rem;
 

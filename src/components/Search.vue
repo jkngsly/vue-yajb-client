@@ -1,10 +1,11 @@
 <script>
-import SearchResults from "./SearchResults.vue";
-import SearchFilters from "./SearchFilters.vue";
+import SearchResults from "@components/SearchResults.vue";
+import SearchFilters from "@components/SearchFilters.vue";
 import filterIcon from "@assets/filter.svg?raw";
+import DropDown from "@components/form/DropDown.vue";
 
 export default {
-  components: { SearchResults, SearchFilters },
+  components: { SearchResults, SearchFilters, DropDown },
   setup(props) {},
   data() {
     return { filterIcon, filtersVisible: false };
@@ -36,11 +37,8 @@ export default {
       <div class="search-field">
         <input type="text" class="search-location" placeholder="Location" />
       </div>
-      <div class="search-field">
-        <button class="dropdown">Job Type</button>
-      </div>
-      <div class="search-field">
-        <button class="dropdown">On-site</button>
+      <div class="search-field search-field-dropdown">
+        <DropDown></DropDown>
       </div>
 
       <div class="search-field">
