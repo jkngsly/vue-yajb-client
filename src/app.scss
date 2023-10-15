@@ -520,6 +520,7 @@ body {
         opacity: 0;
         font-size: 0.8rem;
         line-height: 1.2rem;
+        z-index: -1;
       }
 
       &.tooltip-visible:before {
@@ -546,6 +547,7 @@ body {
     opacity: 0;
   }
   100% {
+    z-index: 10;
     right: -220px;
     opacity: 1;
   }
@@ -553,10 +555,12 @@ body {
 
 @keyframes hideTooltip {
   0% {
+    z-index: 10;
     right: -220px;
     opacity: 1;
   }
   99% {
+    z-index: 10;
     right: -186px;
     opacity: 0;
   }

@@ -19,6 +19,7 @@ export default {
       let response = await auth.login(this.email, this.password);
       console.log(response);
       if (response.success) {
+        this.$store.dispatch("loginState", true);
         this.$router.push("/");
       } else {
         this.error = response.error;
