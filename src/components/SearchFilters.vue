@@ -16,8 +16,7 @@ export default {
 </script>
 
 <template>
-  <div id="search-filters" class="box rounded">
-    <header class="rounded sharp-bottom">Filter</header>
+  <div id="search-filters">
     <form>
       <div class="form-group">
         <label>Salary</label>

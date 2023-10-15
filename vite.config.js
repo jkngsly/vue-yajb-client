@@ -1,5 +1,6 @@
 import { fileURLToPath, URL } from "url";
 import { defineConfig, loadEnv } from "vite";
+import svgLoader from "vite-svg-loader";
 import vue from "@vitejs/plugin-vue";
 
 // Alias paths '@'
@@ -22,7 +23,7 @@ export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
   return defineConfig({
-    plugins: [vue()],
+    plugins: [vue(), svgLoader()],
     resolve: {
       alias: getPaths([
         "", // @ (./src)

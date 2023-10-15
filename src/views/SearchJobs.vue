@@ -13,9 +13,8 @@ export default {
 </script>
 
 <template>
-  <div class="page">
+  <div class="page search-page">
     <Search />
-    <SearchFilters />
   </div>
 </template>
 

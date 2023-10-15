@@ -1,10 +1,13 @@
 <script>
 import SearchResults from "./SearchResults.vue";
+import SearchFilters from "./SearchFilters.vue";
+import filterIcon from "@assets/filter.svg?raw";
+
 export default {
-  components: { SearchResults },
+  components: { SearchResults, SearchFilters },
   setup(props) {},
   data() {
-    return {};
+    return { filterIcon };
   },
 };
 </script>
@@ -28,7 +31,12 @@ export default {
       <div class="search-field">
         <button class="dropdown">On-site</button>
       </div>
+
+      <div class="search-field">
+        <a class="filter svg-icon" v-html="filterIcon"></a>
+      </div>
     </div>
+    <SearchFilters />
     <SearchResults />
   </div>
 </template>
