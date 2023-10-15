@@ -52,13 +52,15 @@ router.beforeEach((to, from, next) => {
     "/reset-password",
   ];
 
+  /*
   if (store.getters.loginState) {
     if (to.path === "/login") next("/");
     else next();
   } else {
     if (to.path === "/login") next();
     else next("/login");
-  }
+  }*/
+  next();
 });
 
 export default router;
