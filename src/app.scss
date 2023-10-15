@@ -511,7 +511,6 @@ body {
         flex-direction: column;
         justify-content: center;
         background: rgba(249, 0, 0, 0.5803921569);
-        z-index: 10;
         top: -5px;
         border-radius: 15px;
         color: #fff;
@@ -539,23 +538,29 @@ body {
 }
 
 @keyframes showTooltip {
-  from {
+  0% {
+    z-index: 10;
+  }
+  1% {
     right: -186px;
     opacity: 0;
   }
-  to {
+  100% {
     right: -220px;
     opacity: 1;
   }
 }
 
 @keyframes hideTooltip {
-  from {
+  0% {
     right: -220px;
     opacity: 1;
   }
-  to {
+  99% {
     right: -186px;
     opacity: 0;
+  }
+  100% {
+    z-index: -10;
   }
 }
