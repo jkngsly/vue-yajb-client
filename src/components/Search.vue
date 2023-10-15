@@ -79,6 +79,7 @@ export default {
         <DropDown
           :options="datePostedOptions"
           :value="datePosted"
+          :className="'search-time'"
           @update:value="datePosted = $event"
         ></DropDown>
       </div>
@@ -86,6 +87,7 @@ export default {
         <DropDown
           :options="jobTypeOptions"
           :value="jobType"
+          :className="'search-job-type'"
           @update:value="jobType = $event"
         ></DropDown>
       </div>

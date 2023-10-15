@@ -2,7 +2,13 @@
 import vClickOutside from "click-outside-vue3";
 
 export default {
-  props: ["options", "value"],
+  props: {
+    options: {},
+    value: {},
+    className: {
+      default: "",
+    },
+  },
   directives: {
     clickOutside: vClickOutside.directive,
   },
@@ -11,6 +17,7 @@ export default {
     return {
       options: props.options,
       value: props.value,
+      className: props.className,
     };
   },
   components: {},
@@ -96,7 +103,7 @@ export default {
         </li>
       </ul>
     </div>
-    <button>{{ value.text }}</button>
+    <button :class="className">{{ value.text }}</button>
   </div>
 </template>
 
