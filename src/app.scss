@@ -477,6 +477,10 @@ body {
         background-image: url(password.svg);
         background-size: 15px;
       }
+
+      &.field-error {
+        border-color: rgba(249, 0, 0, 0.5803921569);
+      }
     }
 
     .error {
@@ -489,5 +493,69 @@ body {
       font-weight: 600;
       font-size: 0.8rem;
     }
+
+    .tooltip {
+      position: relative;
+      width: 100%;
+      float: left;
+      display: flex;
+      flex-direction: column;
+
+      &:before {
+        content: attr(data-before);
+        position: absolute;
+        width: 200px;
+        height: auto;
+        min-height: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: rgba(249, 0, 0, 0.5803921569);
+        z-index: 10;
+        top: -5px;
+        border-radius: 15px;
+        color: #fff;
+        text-shadow: 1px 1px #c37a7a;
+        padding: 5px 0;
+        text-align: center;
+        opacity: 0;
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+      }
+
+      &.tooltip-visible:before {
+        animation-name: showTooltip;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+      }
+
+      &.tooltip-hidden:before {
+        animation-name: hideTooltip;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+}
+
+@keyframes showTooltip {
+  from {
+    right: -186px;
+    opacity: 0;
+  }
+  to {
+    right: -220px;
+    opacity: 1;
+  }
+}
+
+@keyframes hideTooltip {
+  from {
+    right: -220px;
+    opacity: 1;
+  }
+  to {
+    right: -186px;
+    opacity: 0;
   }
 }

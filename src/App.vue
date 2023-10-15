@@ -18,7 +18,7 @@ export default {
   data() {
     /*this.authenticated = false;
 
-    
+
     auth.authNotifier.on("authChange", (authState) => {
       this.authenticated = authState.authenticated;
     });
