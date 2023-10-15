@@ -2,26 +2,24 @@
 import vClickOutside from "click-outside-vue3";
 
 export default {
-  props: {
-    options: [
-      { text: "Test" },
-      { text: "Test2" },
-      { text: "Test3" },
-      { text: "Test4" },
-    ],
-  },
+  props: ["options", "value"],
   directives: {
     clickOutside: vClickOutside.directive,
   },
   emits: ["update:value"],
-  setup(props) {},
+  setup(props) {
+    return {
+      options: props.options,
+      value: props.value,
+    };
+  },
   components: {},
   data() {
     return {
       visible: false,
       initialHeight: false,
       menuEl: false,
-      speed: 50,
+      speed: 30,
     };
   },
   methods: {
@@ -45,7 +43,7 @@ export default {
       this.menuEl.style.zIndex = "10";
       this.menuEl.style.opacity = 1;
 
-      for (var i = 0; i < this.initialHeight; i++) {
+      for (let i = 0; i < this.initialHeight; i++) {
         setTimeout(() => {
           this.menuEl.style.height = i + "px";
         }, this.speed);
@@ -53,16 +51,14 @@ export default {
     },
 
     hide() {
-      for (var i = this.initialHeight; i > 1; i--) {
+      for (let i = this.initialHeight; i >= 0; i--) {
         setTimeout(() => {
           this.menuEl.style.height = i + "px";
-
-          if (i < 1) {
+          if (i == 0) {
             setTimeout(() => {
               this.menuEl.style.zIndex = "-10";
               this.menuEl.style.opacity = 0;
-              this.menuEl.style.height = this.initialHeight + "px";
-            }, 20);
+            }, 100);
           }
         }, this.speed);
       }
@@ -72,6 +68,11 @@ export default {
       if (this.menuEl !== false && this.visible) {
         this.showHide();
       }
+    },
+
+    select(option) {
+      this.value = option;
+      this.$emit("update:value", this.value);
     },
   },
 };
@@ -86,13 +87,16 @@ export default {
   >
     <div class="dropdown-menu">
       <ul>
-        <li>Today</li>
-        <li>Past 3 Days</li>
-        <li>Past Week</li>
-        <li>Past Month</li>
+        <li
+          v-for="option in options"
+          @click="select(option)"
+          :class="{ active: value == option }"
+        >
+          {{ option.text }}
+        </li>
       </ul>
     </div>
-    <button>On-site</button>
+    <button>{{ value.text }}</button>
   </div>
 </template>
 

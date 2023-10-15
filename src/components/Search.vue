@@ -6,9 +6,47 @@ import DropDown from "@components/form/DropDown.vue";
 
 export default {
   components: { SearchResults, SearchFilters, DropDown },
-  setup(props) {},
+  watch: {
+    datePosted(n) {
+      console.log(n);
+    },
+  },
   data() {
-    return { filterIcon, filtersVisible: false };
+    let datePostedOptions = [
+      {
+        text: "Today",
+      },
+      {
+        text: "Past 3 Days",
+      },
+      {
+        text: "Past Week",
+      },
+      {
+        text: "Past Month",
+      },
+    ];
+
+    let jobTypeOptions = [
+      {
+        text: "On-site",
+      },
+      {
+        text: "Remote",
+      },
+      {
+        text: "Hybrid",
+      },
+    ];
+
+    return {
+      filterIcon,
+      filtersVisible: false,
+      datePostedOptions,
+      datePosted: datePostedOptions[0],
+      jobTypeOptions,
+      jobType: jobTypeOptions[0],
+    };
   },
   methods: {
     showFilters(e) {
@@ -38,7 +76,18 @@ export default {
         <input type="text" class="search-location" placeholder="Location" />
       </div>
       <div class="search-field search-field-dropdown">
-        <DropDown></DropDown>
+        <DropDown
+          :options="datePostedOptions"
+          :value="datePosted"
+          @update:value="datePosted = $event"
+        ></DropDown>
+      </div>
+      <div class="search-field search-field-dropdown">
+        <DropDown
+          :options="jobTypeOptions"
+          :value="jobType"
+          @update:value="jobType = $event"
+        ></DropDown>
       </div>
 
       <div class="search-field">

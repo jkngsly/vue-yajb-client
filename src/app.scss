@@ -174,13 +174,13 @@ body {
       height: 100%;
       padding: 0 1rem;
       user-select: none;
+      font-weight: $exo-medium;
 
       &:last-child {
         border: none;
       }
 
       input {
-        font-weight: $exo-medium;
         color: $text-default-color;
         border: none;
         outline: none;
@@ -227,22 +227,22 @@ body {
 }
 
 .dropdown {
-  background: url(dropdown.svg) no-repeat right center;
-  background-size: 10px;
-  padding-right: 25px;
+  background: url(dropdown.svg) no-repeat 90% center;
+  background-size: 15px;
   text-align: left;
   min-width: 161px;
   position: relative;
   height: 100%;
   display: flex;
+  font-weight: $exo-semibold;
 
   button {
-    font-weight: $exo-medium;
     color: $text-default-color;
     border: none;
     outline: none;
-    padding: 0;
+    padding: 0 15px 0 0;
     width: 100%;
+    background: none;
   }
 
   .dropdown-menu {
@@ -263,6 +263,23 @@ body {
       list-style-type: none;
       overflow: hidden;
       transition: 0.3s;
+
+      li {
+        width: 100%;
+        cursor: pointer;
+        border-bottom: 1px solid #fff;
+        border-top: 1px solid $box-border-color;
+        text-align: center;
+        padding: 10px 0;
+        cursor: pointer;
+
+        &:hover,
+        &.active {
+          background: $prim-color;
+          color: $prim-color-text;
+          border-color: $prim-color;
+        }
+      }
     }
   }
 }

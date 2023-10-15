@@ -8,7 +8,6 @@ const updateLabel = (label, newValue) => {
 export default {
   mounted(el, binding, vnode, prevVnode) {
     const options = binding.value;
-    console.log(options);
     slider.create(el, {
       start: options.start,
       /*

@@ -1,5 +1,5 @@
 <script>
-import { watch, ref } from "vue";
+import { ref } from "vue";
 let parentValue = ref("");
 let min = ref("");
 let max = ref("");
@@ -16,7 +16,6 @@ export default {
       default: [200],
     },
   },
-  emits: ["update:value"],
   setup(props) {
     parentValue = props.value;
     min = props.min;
