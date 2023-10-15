@@ -7,7 +7,18 @@ export default {
   components: { SearchResults, SearchFilters },
   setup(props) {},
   data() {
-    return { filterIcon };
+    return { filterIcon, filtersVisible: false };
+  },
+  methods: {
+    showFilters(e) {
+      this.filtersVisible = !this.filtersVisible;
+
+      if (this.filtersVisible) {
+        e.target.parentElement.classList.add("active");
+      } else {
+        e.target.parentElement.classList.remove("active");
+      }
+    },
   },
 };
 </script>
@@ -33,10 +44,10 @@ export default {
       </div>
 
       <div class="search-field">
-        <a class="filter svg-icon" v-html="filterIcon"></a>
+        <a class="filter svg-icon" @click="showFilters" v-html="filterIcon"></a>
       </div>
     </div>
-    <SearchFilters />
+    <SearchFilters :visible.sync="filtersVisible" />
     <SearchResults />
   </div>
 </template>
