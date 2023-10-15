@@ -1,14 +1,10 @@
 <script>
-import axios from "axios";
 import PageMenu from "@components/PageMenu.vue";
 import Search from "@components/Search.vue";
 import Application from "@components/Application.vue";
+import api from "@config/api";
 
-// API config
-axios.defaults.baseURL = config.api.host;
-axios.defaults.headers.post["Content-Type"] = config.api.contentType;
-axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
-//axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+api.init();
 
 export default {
   components: { PageMenu, Search, Application },
