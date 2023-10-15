@@ -9,7 +9,7 @@ export default {
   setup(props) {},
   data() {
     return {
-      salary: [60000, 200000],
+      salary: [60, 120],
     };
   },
 };
@@ -19,7 +19,10 @@ export default {
   <div id="search-filters" class="box rounded">
     <header class="rounded sharp-bottom">Filter</header>
     <form>
-      <RangeSlider :value="salary" @update:value="salary = $event" />
+      <div class="form-group">
+        <label>Salary</label>
+        <RangeSlider :value="salary" @update:value="salary = $event" />
+      </div>
     </form>
   </div>
 </template>

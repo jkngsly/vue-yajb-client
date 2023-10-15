@@ -7,13 +7,13 @@ let max = ref("");
 export default {
   props: {
     value: {
-      default: [60000, 90000],
+      default: [60, 90],
     },
     min: {
-      default: [30000],
+      default: [20],
     },
     max: {
-      default: [200000],
+      default: [200],
     },
   },
   emits: ["update:value"],
@@ -36,10 +36,7 @@ export default {
 </script>
 
 <template>
-  <div>
-    <label>{{ parentValue[0] + " - " + parentValue[1] }}</label>
-    <div v-range-slider="options"></div>
-  </div>
+  <div v-range-slider="options"></div>
 </template>
 
 <style scoped></style>
