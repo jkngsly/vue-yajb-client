@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = {
-  host: "http://localhost:3000",
+  host: import.meta.env.VITE_API_HOST,
   contenType: "application/json",
 };
 

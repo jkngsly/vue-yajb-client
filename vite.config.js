@@ -1,7 +1,8 @@
 import { fileURLToPath, URL } from "url";
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 
+// Alias paths '@'
 const getPaths = (paths) => {
   let a = [];
   paths.forEach((p) => {
@@ -16,19 +17,24 @@ const getPaths = (paths) => {
   return a;
 };
 
-export default defineConfig({
-  plugins: [vue()],
-  resolve: {
-    alias: getPaths([
-      "", // @ (./src)
-      "assets", // @assets (./src/assets)
-      "components",
-      "config",
-      "directives",
-      "router",
-      "services",
-      "store",
-      "views",
-    ]),
-  },
-});
+export default ({ mode }) => {
+  // Load app-level env vars to node-level env vars.
+  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
+
+  return defineConfig({
+    plugins: [vue()],
+    resolve: {
+      alias: getPaths([
+        "", // @ (./src)
+        "assets", // @assets (./src/assets)
+        "components",
+        "config",
+        "directives",
+        "router",
+        "services",
+        "store",
+        "views",
+      ]),
+    },
+  });
+};
