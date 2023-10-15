@@ -17,7 +17,6 @@ export default {
   methods: {
     async login() {
       let response = await auth.login(this.email, this.password);
-      console.log(response);
       if (response.success) {
         this.$store.dispatch("loginState", true);
         this.$router.push("/");

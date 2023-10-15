@@ -1,6 +1,11 @@
-<script setup>
-import { ref } from "vue";
-const salary = ref(60000);
+<script>
+export default {
+  components: {},
+  setup(props) {},
+  data() {
+    return {};
+  },
+};
 </script>
 
 <template>
@@ -8,15 +13,7 @@ const salary = ref(60000);
     <header class="rounded sharp-bottom">Filter</header>
     <form>
       <div>
-        <input
-          v-model="salary"
-          type="range"
-          min="30000"
-          max="500000"
-          class="slider"
-        />
-        <br />
-        <input v-model="salary" type="number" disabled />
+        <div v-range-slider></div>
       </div>
     </form>
   </div>
