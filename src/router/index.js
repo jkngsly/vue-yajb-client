@@ -1,6 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router";
 import store from "@store/index";
-import Home from "@views/Home.vue";
+import Dashboard from "@views/Dashboard.vue";
 import SearchJobs from "@views/SearchJobs.vue";
 import MyJobs from "@views/MyJobs.vue";
 import Login from "@views/auth/Login.vue";
@@ -8,9 +8,9 @@ import Register from "@views/auth/Register.vue";
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: Home,
+    path: "/dashboard",
+    name: "Dashboard",
+    component: Dashboard,
     meta: { transition: "fade" },
   },
   {

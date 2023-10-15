@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <div class="page">MY JERBS</div>
+  <div class="page">WELCOME</div>
 </template>
 
 <style scoped></style>

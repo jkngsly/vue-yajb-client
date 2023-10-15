@@ -1,11 +1,10 @@
 <script>
-import PageMenu from "@components/PageMenu.vue";
 import Search from "@components/Search.vue";
 import Application from "@components/Application.vue";
 import SearchFilters from "@components/SearchFilters.vue";
 
 export default {
-  components: { PageMenu, Search, Application, SearchFilters },
+  components: { Search, Application, SearchFilters },
   setup(props) {},
   data() {
     return {};
@@ -14,12 +13,9 @@ export default {
 </script>
 
 <template>
-  <div>
-    <PageMenu />
-    <div class="page">
-      <Search />
-      <SearchFilters />
-    </div>
+  <div class="page">
+    <Search />
+    <SearchFilters />
   </div>
 </template>
 

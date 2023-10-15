@@ -61,6 +61,7 @@ export default {
         ridiculus mus. Etiam dapibus iaculis sapien a ornare. Morbi congue
         tortornis`,
         },
+        /*
         {
           active: false,
           title: "Senior DevOps Engineer",
@@ -104,7 +105,7 @@ export default {
         Orci varius natoque penatibus et magnis dis parturient montes, nascetur
         ridiculus mus. Etiam dapibus iaculis sapien a ornare. Morbi congue
         tortornis`,
-        },
+        },*/
       ],
     };
   },
