@@ -4,8 +4,6 @@ import AuthService from "@services/AuthService";
 const auth = new AuthService();
 
 export default {
-  components: {},
-  setup(props) {},
   data() {
     return {
       email: "",

@@ -1,7 +1,5 @@
 <script>
 export default {
-  components: {},
-  setup(props) {},
   data() {
     return {};
   },

@@ -2,8 +2,6 @@
 import { RouterLink } from "vue-router";
 
 export default {
-  components: {},
-  setup(props) {},
   data() {
     return {};
   },

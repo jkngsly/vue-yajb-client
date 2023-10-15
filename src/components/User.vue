@@ -2,8 +2,6 @@
 import notificationIcon from "@assets/notification.svg?raw";
 
 export default {
-  components: {},
-  setup(props) {},
   data() {
     return {
       notificationIcon,

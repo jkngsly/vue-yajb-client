@@ -1,7 +1,6 @@
 <script>
 export default {
   props: ["position"],
-  setup(props) {},
   data() {
     return {
       ...this.position,

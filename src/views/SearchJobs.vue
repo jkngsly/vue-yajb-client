@@ -5,7 +5,6 @@ import SearchFilters from "@components/SearchFilters.vue";
 
 export default {
   components: { Search, Application, SearchFilters },
-  setup(props) {},
   data() {
     return {};
   },
