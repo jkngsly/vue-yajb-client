@@ -20,11 +20,12 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: getPaths([
-      "",
-      "assets",
+      "", // @ (./src)
+      "assets", // @assets (./src/assets)
       "components",
       "config",
       "directives",
+      "router",
       "services",
       "store",
       "views",

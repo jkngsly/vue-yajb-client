@@ -1,18 +1,27 @@
 import { createApp } from "vue";
-import "./style.scss";
-import "./app.scss";
-import App from "./App.vue";
-import router from "./router";
-import config from "./config";
+import "@/style.scss";
+import "@/app.scss";
+import App from "@/App.vue";
+import router from "@router";
+import config from "@config";
 import tooltip from "@directives/tooltip";
 import rangeSlider from "@directives/range-slider";
 import store from "@store";
 
 const app = createApp(App);
+
+// Config (@config)
 app.config.globalProperties.config = config;
 
+// Directives
 app.directive("tooltip-error", tooltip);
 app.directive("range-slider", rangeSlider);
 
+// Vuex
 app.use(store);
-app.use(router).mount("#app");
+
+// Router
+app.use(router);
+
+// Bootstrap
+app.mount("#app");
