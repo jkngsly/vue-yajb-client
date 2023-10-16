@@ -1,5 +1,5 @@
 <script>
-import PageMenu from "@components/PageMenu.vue";
+import Nav from "@components/nav/Nav.vue";
 import api from "@config/api";
 import { useRoute } from "vue-router";
 import { computed } from "vue";
@@ -7,7 +7,7 @@ import { computed } from "vue";
 api.init();
 
 export default {
-  components: { PageMenu },
+  components: { Nav },
   setup() {
     const route = useRoute();
     const path = computed(() => route.path);
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <template>
-  <PageMenu v-if="showMenu()" />
+  <Nav v-if="showMenu()"></Nav>
   <router-view v-slot="{ Component }">
     <transition name="fade" mode="out-in">
       <component v-on:call="invoke" :is="Component"></component>
