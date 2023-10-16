@@ -1,6 +1,6 @@
 <script>
 import RangeSlider from "@components/form/RangeSlider.vue";
-import { ref, watch } from "vue";
+import { ref } from "vue";
 
 const salary = ref("");
 
@@ -10,6 +10,9 @@ export default {
   watch: {
     visible(n) {
       this.showHide(n);
+    },
+    salary(n) {
+      this.emitFilters();
     },
   },
   data() {
@@ -28,6 +31,12 @@ export default {
         el.remove("visible");
         el.add("hidden");
       }
+    },
+
+    emitFilters() {
+      this.$emit("update:filters", {
+        salary: this.salary,
+      });
     },
   },
 };

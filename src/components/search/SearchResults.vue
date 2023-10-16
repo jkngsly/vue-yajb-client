@@ -1,5 +1,5 @@
 <script>
-import Position from "./Position.vue";
+import Position from "@components/Position.vue";
 
 export default {
   components: { Position },

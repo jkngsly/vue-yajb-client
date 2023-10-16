@@ -1,10 +1,9 @@
 <script>
-import Search from "@components/Search.vue";
+import Search from "@components/search/Search.vue";
 import Application from "@components/Application.vue";
-import SearchFilters from "@components/SearchFilters.vue";
 
 export default {
-  components: { Search, Application, SearchFilters },
+  components: { Search, Application },
   data() {
     return {};
   },

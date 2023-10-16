@@ -1,5 +1,4 @@
 import { createWebHistory, createRouter } from "vue-router";
-import store from "@store/index";
 import Dashboard from "@views/Dashboard.vue";
 import SearchJobs from "@views/SearchJobs.vue";
 import MyJobs from "@views/MyJobs.vue";
