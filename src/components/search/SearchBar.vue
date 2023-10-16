@@ -1,5 +1,6 @@
 <script>
 import filterIcon from "@assets/filter.svg?raw";
+import searchIcon from "@assets/search.svg?raw";
 import DropDown from "@components/form/DropDown.vue";
 
 export default {
@@ -42,6 +43,10 @@ export default {
     ];
 
     return {
+      // Buttons
+      searchIcon,
+      filterIcon,
+
       // Dropdown options
       jobPostedOptions,
       jobTypeOptions,
@@ -53,7 +58,6 @@ export default {
       jobPosted: jobPostedOptions[0],
 
       // Extra Filters
-      filterIcon,
       filtersVisible: false,
     };
   },
@@ -118,12 +122,15 @@ export default {
       ></DropDown>
     </div>
 
-    <div class="search-field">
+    <div class="search-field no-border">
       <a
         class="filter svg-icon"
         @click="showExtraFilters"
         v-html="filterIcon"
       ></a>
+    </div>
+    <div class="search-field no-border search-field-button">
+      <a class="svg-icon" @click="" v-html="searchIcon"></a>
     </div>
   </div>
 </template>

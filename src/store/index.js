@@ -1,23 +1,33 @@
-// store/index.js
 import { createStore } from "vuex";
 
 const store = createStore({
   state: {
-    loginState: false,
+    USER: false,
+    TOKEN: false,
   },
   mutations: {
-    LOGINSTATE(state, loginState) {
-      state.loginState = loginState;
+    USER(state, user) {
+      state.user = user;
+    },
+
+    TOKEN(state, token) {
+      state.token = token;
     },
   },
   actions: {
-    loginState(context, value) {
-      context.commit("LOGINSTATE", value);
+    user(context, value) {
+      context.commit("USER", value);
+    },
+    token(context, value) {
+      context.commit("TOKEN", value);
     },
   },
   getters: {
-    loginState(state) {
-      return state.loginState;
+    user(state) {
+      return state.user;
+    },
+    token(state) {
+      return state.token;
     },
   },
 });

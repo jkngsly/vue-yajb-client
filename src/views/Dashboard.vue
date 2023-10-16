@@ -1,13 +1,16 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      token: this.$store.getters.token,
+      user: this.$store.getters.user,
+    };
   },
 };
 </script>
 
 <template>
-  <div class="page">WELCOME</div>
+  <div class="page">WELCOME {{ user }} {{ token }}</div>
 </template>
 
 <style scoped></style>

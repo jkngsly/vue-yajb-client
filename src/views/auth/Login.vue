@@ -16,7 +16,8 @@ export default {
     async login() {
       let response = await auth.login(this.email, this.password);
       if (response.success) {
-        this.$store.dispatch("loginState", true);
+        this.$store.dispatch("user", response.user);
+        this.$store.dispatch("token", response.accessToken);
         this.$router.push("/");
       } else {
         this.error = response.error;
