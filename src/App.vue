@@ -1,4 +1,5 @@
 <script>
+import PageMenu from "@components/PageMenu.vue";
 import api from "@config/api";
 import { useRoute } from "vue-router";
 import { computed } from "vue";
@@ -6,7 +7,7 @@ import { computed } from "vue";
 api.init();
 
 export default {
-  components: {},
+  components: { PageMenu },
   setup() {
     const route = useRoute();
     const path = computed(() => route.path);

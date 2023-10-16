@@ -14,7 +14,7 @@ export default {
     },
   },
   data() {
-    let datePostedOptions = [
+    let jobPostedOptions = [
       {
         text: "Today",
       },
@@ -42,14 +42,19 @@ export default {
     ];
 
     return {
+      // Dropdown options
+      jobPostedOptions,
+      jobTypeOptions,
+
+      // Search filters
+      jobTitle: "",
+      jobLocation: "",
+      jobType: jobTypeOptions[0],
+      jobPosted: jobPostedOptions[0],
+
+      // Extra Filters
       filterIcon,
       filtersVisible: false,
-
-      datePostedOptions,
-      datePosted: datePostedOptions[0],
-
-      jobTypeOptions,
-      jobType: jobTypeOptions[0],
     };
   },
   methods: {
@@ -68,8 +73,10 @@ export default {
 
     updateFilters() {
       this.$emit("update:filters", {
+        jobTitle: this.jobTitle,
+        jobLocation: this.jobLocation,
         jobType: this.jobType,
-        datePosted: this.datePosted,
+        jobPosted: this.jobPosted,
       });
     },
   },
@@ -79,17 +86,27 @@ export default {
 <template>
   <div id="search-bar" class="box rounded">
     <div class="search-field">
-      <input type="text" class="search-title" placeholder="Search Job Title" />
+      <input
+        type="text"
+        class="search-title"
+        placeholder="Search Job Title"
+        v-model="jobTitle"
+      />
     </div>
     <div class="search-field">
-      <input type="text" class="search-location" placeholder="Location" />
+      <input
+        type="text"
+        class="search-location"
+        placeholder="Location"
+        v-model="jobLocation"
+      />
     </div>
     <div class="search-field search-field-dropdown">
       <DropDown
-        :options="datePostedOptions"
-        :value="datePosted"
+        :options="jobPostedOptions"
+        :value="jobPosted"
         :className="'search-time'"
-        @update:value="datePosted = $event"
+        @update:value="jobPosted = $event.text"
       ></DropDown>
     </div>
     <div class="search-field search-field-dropdown">
@@ -97,7 +114,7 @@ export default {
         :options="jobTypeOptions"
         :value="jobType"
         :className="'search-job-type'"
-        @update:value="jobType = $event"
+        @update:value="jobType = $event.text"
       ></DropDown>
     </div>
 

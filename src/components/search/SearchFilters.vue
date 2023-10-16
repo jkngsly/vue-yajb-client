@@ -18,7 +18,6 @@ export default {
   data() {
     return {
       salary: [60, 120],
-      visible: this.visible,
     };
   },
   methods: {

@@ -86,12 +86,7 @@ export default {
 </script>
 
 <template>
-  <div
-    v-dropdown="options"
-    class="dropdown"
-    @click="showHide"
-    v-click-outside="onClickOutside"
-  >
+  <div class="dropdown" @click="showHide" v-click-outside="onClickOutside">
     <div class="dropdown-menu">
       <ul>
         <li
