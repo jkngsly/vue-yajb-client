@@ -1,0 +1,80 @@
+header {
+  height: $header-height;
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid #d5d5d5;
+  box-shadow: offset-x offset-y blur-radius spread-radius rgba(0, 0, 0, 0.6)
+    inset;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 2rem;
+  user-select: none;
+
+  #header-logo {
+    height: 36px;
+    width: auto;
+    background: url("/logo.png") no-repeat left;
+    display: block;
+    margin-right: 1rem;
+    padding-left: 65px;
+  }
+
+  h1 {
+    font-weight: $exo-black;
+    font-size: 36px;
+    color: $prim-color;
+    margin: -5px 0 0;
+  }
+
+  nav {
+    flex: 0 1 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+
+    a {
+      height: $header-height;
+      line-height: $header-height;
+      display: block;
+      float: left;
+      margin-right: 3rem;
+      border-bottom: 4px solid $invisible;
+
+      &.active,
+      &:hover {
+        color: $prim-color;
+      }
+
+      &.active {
+        border-bottom: 4px solid $prim-color;
+      }
+    }
+  }
+
+  #user {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    a {
+      background-size: contain;
+      display: block;
+      cursor: pointer;
+    }
+
+    a.notifications {
+      width: 25px;
+      height: 25px;
+      margin-left: auto;
+    }
+
+    a.user {
+      background: url("/user.svg") no-repeat;
+      margin-left: 2rem;
+      width: 35px;
+      height: 35px;
+    }
+  }
+}

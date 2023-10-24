@@ -1,0 +1,26 @@
+a.svg-icon {
+  width: 25px;
+  height: 25px;
+  display: block;
+  cursor: pointer;
+
+  svg {
+    width: 100%;
+    height: 100%;
+
+    path {
+      fill: $text-default-color;
+      stroke: $text-default-color;
+    }
+  }
+
+  &:hover,
+  &.active {
+    svg {
+      path {
+        fill: $prim-color;
+        stroke: $prim-color;
+      }
+    }
+  }
+}

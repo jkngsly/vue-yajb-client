@@ -33,8 +33,8 @@ export default {
 </script>
 
 <template>
-  <div id="login" class="page">
-    <h1 id="login-logo">yajb</h1>
+  <div id="auth-page" class="page">
+    <h1>yajb</h1>
     <form class="box rounded" @submit.prevent="register">
       <div v-show="success" class="success rounded">
         {{ config.constants.register.success }}

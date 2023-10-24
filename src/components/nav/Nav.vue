@@ -14,10 +14,10 @@ export default {
   <header>
     <router-link to="/dashboard" id="header-logo"><h1>yajb</h1></router-link>
     <nav>
-      <router-link to="/search-jobs" active-class="active"
+      <router-link to="/jobs/search" active-class="active"
         >Find Jobs</router-link
       >
-      <router-link to="/my-jobs" active-class="active">My Jobs</router-link>
+      <router-link to="/jobs" active-class="active">My Jobs</router-link>
     </nav>
     <User />
   </header>

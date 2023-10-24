@@ -1,4 +1,5 @@
 <script>
+import "@/app.scss";
 import Nav from "@components/nav/Nav.vue";
 import api from "@config/api";
 import { useRoute } from "vue-router";

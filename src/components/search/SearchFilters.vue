@@ -43,7 +43,7 @@ export default {
 
 <template>
   <div id="search-filters">
-    <form>
+    <form class="flex flex-col">
       <div class="form-group">
         <label><span>$</span> Salary</label>
         <RangeSlider :value="salary" @update:value="salary = $event" />
